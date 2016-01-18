@@ -4,5 +4,5 @@
 ## Подключение библиотеки
 
 ```gradle
-compile 'com.github.imangazalievm:fadingbutton:1.0.0'
+compile 'com.github.imangazalievm:quickmenu:0.1.0'
 ```
