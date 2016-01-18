@@ -1,4 +1,4 @@
-package imangazaliev.quickmenulibrary.model;
+package imangazaliev.quickmenu.model;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
-import imangazaliev.quickmenulibrary.interfaces.QuickMenuItem;
+import imangazaliev.quickmenu.interfaces.QuickMenuItem;
 
 public class DividerMenuItem implements QuickMenuItem {
 

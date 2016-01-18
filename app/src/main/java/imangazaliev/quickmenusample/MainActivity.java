@@ -7,10 +7,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
-import imangazaliev.quickmenulibrary.QuickMenu;
-import imangazaliev.quickmenulibrary.QuickMenuProperties;
-import imangazaliev.quickmenulibrary.model.DividerMenuItem;
-import imangazaliev.quickmenulibrary.model.SpinnerMenuItem;
+import imangazaliev.quickmenu.QuickMenu;
+import imangazaliev.quickmenu.QuickMenuProperties;
+import imangazaliev.quickmenu.model.DividerMenuItem;
+import imangazaliev.quickmenu.model.SpinnerMenuItem;
 
 public class MainActivity extends AppCompatActivity {
 

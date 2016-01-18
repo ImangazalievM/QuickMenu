@@ -12,7 +12,7 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
-import imangazaliev.quickmenulibrary.QuickMenuProperties;
+import imangazaliev.quickmenu.QuickMenuProperties;
 
 /**
  * Created by Mahach Imangazaliev on 15.01.2016

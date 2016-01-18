@@ -1,9 +1,11 @@
-package imangazaliev.quickmenulibrary;
+package imangazaliev.quickmenu;
 
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+
+import imangazaliev.quickmenulibrary.R;
 
 /**
  * Created by Mahach Imangazaliev on 15.01.2016

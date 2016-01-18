@@ -1,4 +1,4 @@
-package imangazaliev.quickmenulibrary;
+package imangazaliev.quickmenu;
 
 import android.app.Activity;
 
@@ -6,7 +6,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import imangazaliev.quickmenulibrary.interfaces.QuickMenuItem;
+import imangazaliev.quickmenulibrary.R;
+import imangazaliev.quickmenu.interfaces.QuickMenuItem;
 
 /**
  * Меню быстрых настроек

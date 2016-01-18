@@ -13,9 +13,9 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
-import imangazaliev.quickmenulibrary.QuickMenu;
-import imangazaliev.quickmenulibrary.QuickMenuProperties;
-import imangazaliev.quickmenulibrary.model.SpinnerMenuItem;
+import imangazaliev.quickmenu.QuickMenu;
+import imangazaliev.quickmenu.QuickMenuProperties;
+import imangazaliev.quickmenu.model.SpinnerMenuItem;
 
 /**
  * Created by Mahach Imangazaliev on 14.01.2016

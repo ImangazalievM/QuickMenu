@@ -1,4 +1,4 @@
-package imangazaliev.quickmenulibrary;
+package imangazaliev.quickmenu;
 
 import android.app.Activity;
 import android.view.LayoutInflater;
@@ -11,7 +11,8 @@ import android.widget.RelativeLayout;
 
 import java.util.List;
 
-import imangazaliev.quickmenulibrary.interfaces.QuickMenuItem;
+import imangazaliev.quickmenulibrary.R;
+import imangazaliev.quickmenu.interfaces.QuickMenuItem;
 
 /**
  * Этот класс устанавливает меню в лейаут и заполняет меню пунктами

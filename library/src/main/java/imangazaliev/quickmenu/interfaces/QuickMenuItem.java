@@ -1,4 +1,4 @@
-package imangazaliev.quickmenulibrary.interfaces;
+package imangazaliev.quickmenu.interfaces;
 
 import android.content.Context;
 import android.view.View;

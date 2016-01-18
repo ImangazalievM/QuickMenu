@@ -1,4 +1,4 @@
-package imangazaliev.quickmenulibrary.model;
+package imangazaliev.quickmenu.model;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import imangazaliev.quickmenulibrary.R;
-import imangazaliev.quickmenulibrary.interfaces.QuickMenuItem;
+import imangazaliev.quickmenu.interfaces.QuickMenuItem;
 
 public class SpinnerMenuItem implements QuickMenuItem {
 

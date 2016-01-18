@@ -1,4 +1,4 @@
-package imangazaliev.quickmenulibrary.model;
+package imangazaliev.quickmenu.model;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -10,8 +10,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import imangazaliev.quickmenu.interfaces.QuickMenuItem;
 import imangazaliev.quickmenulibrary.R;
-import imangazaliev.quickmenulibrary.interfaces.QuickMenuItem;
 
 /**
  * Created by Mahach Imangazaliev on 18.01.2016
