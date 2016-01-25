@@ -1,6 +1,12 @@
 # QuickMenu
 Небольшая библиотека для создания меню с быстрыми настройками
 
+##Скриншоты
+
+<img src="https://github.com/ImangazalievM/QuickMenu/blob/master/screenshots/1.jpg" width="50%">
+\<img src="https://github.com/ImangazalievM/QuickMenu/blob/master/screenshots/2.jpg" width="50%">
+<img src="https://github.com/ImangazalievM/QuickMenu/blob/master/screenshots/3.jpg" width="50%">
+
 ## Подключение библиотеки
 
 ```gradle
