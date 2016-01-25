@@ -17,7 +17,6 @@ compile 'com.github.imangazalievm:quickmenu:0.1.0'
 
 ```java
 QuickMenu menu = new QuickMenu.Builder(this).build();
-                
 menu.show();
 ```
 
