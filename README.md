@@ -82,7 +82,7 @@ menu.show();
 
 #Лицензия
 
-    The MIT License
+The MIT License
 
 Copyright (c) 2016 Imangazaliev Mahach
 
