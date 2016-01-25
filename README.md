@@ -15,7 +15,7 @@ QuickMenu menu = new QuickMenu.Builder(this).build();
 menu.show();
 ```
 
-Дбавляем элементы меню:
+Добавляем элементы меню:
 
 ```java
 QuickMenu menu = new QuickMenu.Builder(this)
