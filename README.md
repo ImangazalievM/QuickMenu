@@ -7,7 +7,7 @@
 compile 'com.github.imangazalievm:quickmenu:0.1.0'
 ```
 
-Показываем меню:
+##Показываем меню:
 
 ```java
 QuickMenu menu = new QuickMenu.Builder(this).build();
@@ -15,7 +15,7 @@ QuickMenu menu = new QuickMenu.Builder(this).build();
 menu.show();
 ```
 
-Добавляем элементы меню:
+##Добавление элементов
 
 ```java
 QuickMenu menu = new QuickMenu.Builder(this)
@@ -52,6 +52,8 @@ public class CustomMenuItem implements QuickMenuItem {
 }
 ```
 
+##Настройка внешнего вида
+
 Внешний вид меню можно настроить с помощью QuickMenuProperties:
 
 ```java
@@ -80,7 +82,7 @@ menu.show();
 - **withLayoutBackground(Drawable)** - фон области вокруг меню
 - **withCancelOnTouchOutside(boolean)** - закрытие при нажатии на область за границей меню
 
-#Лицензия
+##Лицензия
 
 The MIT License
 
