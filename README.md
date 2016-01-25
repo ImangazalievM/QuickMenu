@@ -15,6 +15,33 @@ compile 'com.github.imangazalievm:quickmenu:0.1.0'
 
 ##Показываем меню:
 
+Файл **main.xml**:
+
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showMenu"
+        android:text="Show menu"
+        android:layout_centerInParent="true"
+        />
+
+    <FrameLayout
+        android:id="@id/quickMenuContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
+```
+
+Во FrameLayout'е с идентификатором `quickMenuContainer` будет показано наше меню.
+
 ```java
 QuickMenu menu = new QuickMenu.Builder(this).build();
 menu.show();
