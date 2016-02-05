@@ -63,7 +63,7 @@ QuickMenu menu = new QuickMenu.Builder(this)
 
 There are only 3 types of elements:
 
-- **SpinnerMenuItem** - customazble Spinner
+- **SpinnerMenuItem** - customizable Spinner
 - **TextMenuItem** - text
 - **DividerMenuItem** - divider line
 
