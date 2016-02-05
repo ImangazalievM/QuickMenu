@@ -1,6 +1,6 @@
 # QuickMenu
 
-[Русскаяверсия (Russian version)](README-RU.md)
+[Русская версия (Russian version)](README-RU.md)
 
 Small library for creating menus with fast settings
 
