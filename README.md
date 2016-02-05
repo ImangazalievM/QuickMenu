@@ -1,0 +1,130 @@
+# QuickMenu
+
+[Русскаяверсия (Russian version)](README-RU.md)
+
+Small library for creating menus with fast settings
+
+## Screenshots
+
+<img src="https://github.com/ImangazalievM/QuickMenu/blob/master/screenshots/1.jpg" width="33%">
+<img src="https://github.com/ImangazalievM/QuickMenu/blob/master/screenshots/2.jpg" width="33%">
+<img src="https://github.com/ImangazalievM/QuickMenu/blob/master/screenshots/3.jpg" width="33%">
+
+## Connecting library to project
+
+```gradle
+compile 'com.github.imangazalievm:quickmenu:0.1.0'
+```
+
+## How to show menu:
+
+File **main.xml**:
+
+```java
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="showMenu"
+        android:text="Show menu"
+        android:layout_centerInParent="true"
+        />
+
+    <FrameLayout
+        android:id="@id/quickMenuContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>
+```
+
+Our menu will be shown in FrameLayout with ID `quickMenuContainer`
+
+```java
+QuickMenu menu = new QuickMenu.Builder(this).build();
+menu.show();
+```
+
+## Adding new elements to menu
+
+```java
+QuickMenu menu = new QuickMenu.Builder(this)
+        .withItems(new SpinnerMenuItem(spinnerItems),
+                new DividerMenuItem(this)),
+                new SpinnerMenuItem(spinnerItems))
+        .withProperties(properties)
+        .build();
+```
+
+There are only 3 types of elements:
+
+- **SpinnerMenuItem** - customazble Spinner
+- **TextMenuItem** - text
+- **DividerMenuItem** - divider line
+
+We also can create custom elements, implementing <b>QuickMenuItem</b> interface:
+
+```java
+public class CustomMenuItem implements QuickMenuItem {
+
+    public CustomItem() {
+    }
+
+    @Override
+    public View getView(Context context, ViewGroup parent) {
+        
+        MyCustomView view = ...
+        
+        //создаем View
+        
+        return view;
+    }
+}
+```
+
+## Changing user-interface
+
+Menu's appearance can be changed using QuickMenuProporeties.
+
+```java
+QuickMenuProperties properties = new QuickMenuProperties.Builder(this)
+        .withWidthInPercentages(menuWidthInPercentages)
+        .withBackground(drawable)
+        .withMargins(left, top, right, bottom)
+        .withLayoutBackground(drawable)
+        .withCancelOnTouchOutside(true)
+        .build();
+
+QuickMenu menu = new QuickMenu.Builder(this)
+        .withItems(new SpinnerMenuItem(spinnerItems),
+                new DividerMenuItem(this).withColor(Color.parseColor("#FFA19348")),
+                new SpinnerMenuItem(spinnerItems))
+        .withProperties(properties)
+        .build();
+        
+menu.show();
+```
+
+- **withWidth(int)** - menu width in pixels
+- **withWidthInPercentages()** - menu width in percents
+- **withMargins(int, int, int, int)** - menu indent
+- **withBackground(Drawable)** - menu background
+- **withLayoutBackground(Drawable)** - background of area around menu
+- **withCancelOnTouchOutside(boolean)** - close menu when touched outside
+
+## License
+
+The MIT License
+
+Copyright (c) 2016 Mahach Imangazaliev 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
