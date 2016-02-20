@@ -55,7 +55,7 @@ menu.show();
 ```java
 QuickMenu menu = new QuickMenu.Builder(this)
         .withItems(new SpinnerMenuItem(spinnerItems),
-                new DividerMenuItem(this)),
+                new DividerMenuItem(this),
                 new SpinnerMenuItem(spinnerItems))
         .withProperties(properties)
         .build();
