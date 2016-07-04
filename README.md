@@ -1,4 +1,5 @@
-# QuickMenu [ ![Download](https://api.bintray.com/packages/a-zaiats/maven/io.github.azaiats.androidmvvm/images/download.svg) ](https://bintray.com/imangazaliev/maven/quickmenu/_latestVersion)
+# QuickMenu 
+[ ![Download](https://api.bintray.com/packages/a-zaiats/maven/io.github.azaiats.androidmvvm/images/download.svg) ](https://bintray.com/imangazaliev/maven/quickmenu/_latestVersion)
 [![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-android--mvvm-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3824)
 
 [Русская версия (Russian version)](README-RU.md)
