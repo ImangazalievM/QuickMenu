@@ -1,4 +1,7 @@
 # QuickMenu
+[ ![Download](https://api.bintray.com/packages/imangazaliev/maven/quickmenu/images/download.svg) ](https://bintray.com/imangazaliev/maven/quickmenu/_latestVersion)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-QuickMenu-brightgreen.svg?style=flat)](http://android-arsenal.com/details/1/3824)
+
 Небольшая библиотека для создания меню с быстрыми настройками
 
 ##Скриншоты
