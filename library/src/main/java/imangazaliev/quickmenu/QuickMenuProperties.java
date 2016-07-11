@@ -20,7 +20,7 @@ public class QuickMenuProperties {
     private final int mMarginTop, mMarginLeft, mMarginBottom, mMarginRight;
     private final Drawable mMenuBackground;
     private final Drawable mLayoutBackground;
-    private final boolean mCancelOnTouchOutside;
+    private final boolean mCanceledOnTouchOutside;
 
     private QuickMenuProperties(Builder builder) {
         this.mWidthMode = builder.mWidthMode;
@@ -32,7 +32,7 @@ public class QuickMenuProperties {
         this.mMarginBottom = builder.mMarginBottom;
         this.mMenuBackground = builder.mMenuBackground;
         this.mLayoutBackground = builder.mLayoutBackground;
-        this.mCancelOnTouchOutside = builder.mCancelOnTouchOutside;
+        this.mCanceledOnTouchOutside = builder.mCanceledOnTouchOutside;
     }
 
     public WidthMode getWidthMode() {
@@ -71,8 +71,8 @@ public class QuickMenuProperties {
         return mLayoutBackground;
     }
 
-    public boolean getCancelOnTouchOutside() {
-        return mCancelOnTouchOutside;
+    public boolean getCanceledOnTouchOutside() {
+        return mCanceledOnTouchOutside;
     }
 
     public static class Builder {
@@ -102,7 +102,7 @@ public class QuickMenuProperties {
         /**
          * Меню закрывается при нажатии за зону самого меню
          */
-        private boolean mCancelOnTouchOutside;
+        private boolean mCanceledOnTouchOutside;
 
         public Builder(Context context) {
             mWidthMode = WidthMode.PIXELS;
@@ -110,7 +110,7 @@ public class QuickMenuProperties {
             mMarginTop = mMarginLeft = mMarginBottom = mMarginRight = context.getResources().getDimensionPixelSize(R.dimen.quick_menu_margin);
             mMenuBackground = context.getResources().getDrawable(R.drawable.quick_menu_bg);
             mLayoutBackground = new ColorDrawable(Color.parseColor("#99000000"));
-            mCancelOnTouchOutside = false;
+            mCanceledOnTouchOutside = false;
         }
 
         public Builder withWidth(int width) {
@@ -150,7 +150,7 @@ public class QuickMenuProperties {
         }
 
         public Builder withCancelOnTouchOutside(boolean cancelOnTouchOutside) {
-            this.mCancelOnTouchOutside = cancelOnTouchOutside;
+            this.mCanceledOnTouchOutside = cancelOnTouchOutside;
             return this;
         }
 

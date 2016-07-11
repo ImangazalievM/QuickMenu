@@ -19,11 +19,9 @@ public class QuickMenu {
     private final QuickMenuHelper mHelper;
 
     private QuickMenu(Builder builder) {
-        mActivity = builder.mActivity;
-        mItems = builder.mItems;
-        int layoutId = builder.mLayoutId;
-
-        mHelper = new QuickMenuHelper(mActivity, mItems, layoutId, builder.mMenuProperties);
+        this.mActivity = builder.mActivity;
+        this.mItems = builder.mItems;
+        this.mHelper = new QuickMenuHelper(mActivity, mItems, builder.mLayoutId, builder.mMenuProperties);
     }
 
     public Activity getActivity() {
@@ -35,7 +33,7 @@ public class QuickMenu {
     }
 
     public boolean isShowing() {
-        return mHelper.isShowed();
+        return mHelper.isShowing();
     }
 
     public void show() {

@@ -83,7 +83,7 @@ public class QuickMenuHelper {
             }
         });
 
-        if (properties.getCancelOnTouchOutside()) {
+        if (properties.getCanceledOnTouchOutside()) {
             mParentLayout.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View v, MotionEvent event) {
@@ -116,7 +116,7 @@ public class QuickMenuHelper {
         }
     }
 
-    public boolean isShowed() {
+    public boolean isShowing() {
         return mParentLayout.getVisibility() == View.VISIBLE;
     }
 
