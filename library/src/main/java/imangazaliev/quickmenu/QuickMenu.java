@@ -28,8 +28,8 @@ public class QuickMenu {
         return mActivity;
     }
 
-    public Activity getItems() {
-        return mActivity;
+    public List<QuickMenuItem> getItems() {
+        return mItems;
     }
 
     public boolean isShowing() {
