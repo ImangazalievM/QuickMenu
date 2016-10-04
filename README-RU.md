@@ -13,7 +13,7 @@
 ## Подключение библиотеки
 
 ```gradle
-compile 'com.github.imangazalievm:quickmenu:0.1.0'
+compile 'com.github.imangazalievm:quickmenu:1.0.0'
 ```
 
 ##Показываем меню:
