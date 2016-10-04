@@ -23,12 +23,11 @@ public class MainActivity extends AppCompatActivity {
 
         String[] spinnerItems = {"Cat", "Dog", "Cow"};
 
-        int menuWidth = getResources().getDimensionPixelSize(R.dimen.quick_menu_custom_width);
         Drawable menuBackground = getResources().getDrawable(R.drawable.quick_menu_custom_bg);
         Drawable layoutBackground = new ColorDrawable(Color.parseColor("#80000000"));
 
         QuickMenuProperties properties = new QuickMenuProperties.Builder(this)
-                .withWidthInPercentages(40)
+                .withWidthInPercentages(60)
                 .withBackground(menuBackground)
                 .withMargins(50, 50, 50, 50)
                 .withLayoutBackground(layoutBackground)
