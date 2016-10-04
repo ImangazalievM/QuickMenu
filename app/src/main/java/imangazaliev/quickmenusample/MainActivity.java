@@ -25,19 +25,19 @@ public class MainActivity extends AppCompatActivity {
 
         int menuWidth = getResources().getDimensionPixelSize(R.dimen.quick_menu_custom_width);
         Drawable menuBackground = getResources().getDrawable(R.drawable.quick_menu_custom_bg);
-        Drawable layoutBackground = new ColorDrawable(Color.parseColor("#55bfb477"));
+        Drawable layoutBackground = new ColorDrawable(Color.parseColor("#80000000"));
 
         QuickMenuProperties properties = new QuickMenuProperties.Builder(this)
                 .withWidthInPercentages(40)
                 .withBackground(menuBackground)
-                .withMargins(0, 50, 50, 0)
+                .withMargins(50, 50, 50, 50)
                 .withLayoutBackground(layoutBackground)
                 .withCancelOnTouchOutside(true)
                 .build();
 
         menu = new QuickMenu.Builder(this)
                 .withItems(new SpinnerMenuItem(spinnerItems),
-                        new DividerMenuItem(this).withColor(Color.parseColor("#FFA19348")),
+                        new DividerMenuItem(this).withColor(Color.parseColor("#EEEEEE")),
                         new SpinnerMenuItem(spinnerItems))
                 .withProperties(properties)
                 .build();

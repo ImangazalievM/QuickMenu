@@ -10,7 +10,7 @@ android {
         minSdkVersion 14
         targetSdkVersion 23
         versionCode 1
-        versionName "1.0"
+        versionName "1.0.0"
     }
     buildTypes {
         release {
@@ -29,7 +29,7 @@ dependencies {
 publish {
     groupId = 'com.github.imangazalievm'
     artifactId = 'quickmenu'
-    publishVersion = '0.1.0'
+    publishVersion = '1.0.0'
     desc = 'Небольшая библиотека для создания меню с быстрыми настройками'
     licences = ['MIT']
     website = 'https://github.com/ImangazalievM/QuickMenu'

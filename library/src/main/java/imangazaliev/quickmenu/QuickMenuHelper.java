@@ -27,6 +27,8 @@ public class QuickMenuHelper {
     private RelativeLayout mParentLayout;
     /* Лейаут меню */
     private LinearLayout mMenuLayout;
+    /* Лейаут пунктов меню */
+    private LinearLayout mMenuItemsContainer;
 
     public QuickMenuHelper(Activity activity, List<QuickMenuItem> items, int layoutId, QuickMenuProperties properties) {
         this.mActivity = activity;
@@ -61,6 +63,7 @@ public class QuickMenuHelper {
         inflater.inflate(R.layout.quick_menu_layout, mMenuContainerLayout, true);
         mParentLayout = (RelativeLayout) mMenuContainerLayout.findViewById(R.id.menuParentLayout);
         mMenuLayout = (LinearLayout) mParentLayout.findViewById(R.id.menuLayout);
+        mMenuItemsContainer = (LinearLayout) mParentLayout.findViewById(R.id.menuItemsContainer);
 
         mParentLayout.setBackgroundDrawable(properties.getLayoutBackground());
         mMenuLayout.setBackgroundDrawable(properties.getMenuBackground());
@@ -77,9 +80,12 @@ public class QuickMenuHelper {
                     menuWidth = (int) (mParentLayout.getWidth() * widthInPercentages);
                 }
 
-                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(menuWidth, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mMenuLayout.getLayoutParams();
                 layoutParams.setMargins(properties.getMarginLeft(), properties.getMarginTop(), properties.getMarginRight(), properties.getMarginBottom());
+                layoutParams.width = menuWidth;
                 mMenuLayout.setLayoutParams(layoutParams);
+                mMenuLayout.setPadding(properties.getPaddingLeft(), properties.getPaddingTop(), properties.getPaddingRight(), properties.getPaddingBottom());
+
             }
         });
 
@@ -112,7 +118,7 @@ public class QuickMenuHelper {
      */
     private void addItemsToMenu() {
         for (QuickMenuItem item : mItems) {
-            mMenuLayout.addView(item.getView(mActivity, mMenuLayout));
+            mMenuItemsContainer.addView(item.getView(mActivity, mMenuLayout));
         }
     }
 

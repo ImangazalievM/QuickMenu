@@ -17,7 +17,8 @@ public class QuickMenuProperties {
     private final WidthMode mWidthMode;
     private final int mMenuWidth;
     private final int mMenuWidthInPercentages;
-    private final int mMarginTop, mMarginLeft, mMarginBottom, mMarginRight;
+    private final int mMarginLeft, mMarginTop, mMarginRight, mMarginBottom;
+    private final int mPaddingLeft, mPaddingTop, mPaddingRight, mPaddingBottom;
     private final Drawable mMenuBackground;
     private final Drawable mLayoutBackground;
     private final boolean mCanceledOnTouchOutside;
@@ -30,6 +31,10 @@ public class QuickMenuProperties {
         this.mMarginTop = builder.mMarginTop;
         this.mMarginRight = builder.mMarginRight;
         this.mMarginBottom = builder.mMarginBottom;
+        this.mPaddingLeft = builder.mPaddingLeft;
+        this.mPaddingTop = builder.mPaddingTop;
+        this.mPaddingRight = builder.mPaddingRight;
+        this.mPaddingBottom = builder.mPaddingBottom;
         this.mMenuBackground = builder.mMenuBackground;
         this.mLayoutBackground = builder.mLayoutBackground;
         this.mCanceledOnTouchOutside = builder.mCanceledOnTouchOutside;
@@ -63,6 +68,22 @@ public class QuickMenuProperties {
         return mMarginRight;
     }
 
+    public int getPaddingTop() {
+        return mPaddingTop;
+    }
+
+    public int getPaddingBottom() {
+        return mPaddingBottom;
+    }
+
+    public int getPaddingLeft() {
+        return mPaddingLeft;
+    }
+
+    public int getPaddingRight() {
+        return mPaddingRight;
+    }
+
     public Drawable getMenuBackground() {
         return mMenuBackground;
     }
@@ -88,9 +109,13 @@ public class QuickMenuProperties {
          */
         private int mMenuWidthInPercentages;
         /**
-         * Отступы меню
+         * Внешние отступы меню
          */
         private int mMarginTop, mMarginLeft, mMarginBottom, mMarginRight;
+        /**
+         * Внутренние отступы меню
+         */
+        private int mPaddingTop, mPaddingLeft, mPaddingBottom, mPaddingRight;
         /**
          * Фон меню
          */
@@ -105,12 +130,13 @@ public class QuickMenuProperties {
         private boolean mCanceledOnTouchOutside;
 
         public Builder(Context context) {
-            mWidthMode = WidthMode.PIXELS;
-            mMenuWidth = context.getResources().getDimensionPixelSize(R.dimen.quick_menu_width);
-            mMarginTop = mMarginLeft = mMarginBottom = mMarginRight = context.getResources().getDimensionPixelSize(R.dimen.quick_menu_margin);
-            mMenuBackground = context.getResources().getDrawable(R.drawable.quick_menu_bg);
-            mLayoutBackground = new ColorDrawable(Color.parseColor("#99000000"));
-            mCanceledOnTouchOutside = false;
+            this.mWidthMode = WidthMode.PIXELS;
+            this.mMenuWidth = context.getResources().getDimensionPixelSize(R.dimen.quick_menu_width);
+            this.mMarginTop = mMarginLeft = mMarginBottom = mMarginRight = context.getResources().getDimensionPixelSize(R.dimen.quick_menu_margin);
+            this.mPaddingTop = mPaddingLeft = mPaddingBottom = mPaddingRight = context.getResources().getDimensionPixelSize(R.dimen.quick_menu_padding);
+            this.mMenuBackground = context.getResources().getDrawable(R.drawable.quick_menu_bg);
+            this.mLayoutBackground = new ColorDrawable(Color.parseColor("#99000000"));
+            this.mCanceledOnTouchOutside = false;
         }
 
         public Builder withWidth(int width) {
@@ -136,6 +162,14 @@ public class QuickMenuProperties {
             this.mMarginTop = top;
             this.mMarginRight = right;
             this.mMarginBottom = bottom;
+            return this;
+        }
+
+        public Builder withPaddings(int left, int top, int right, int bottom) {
+            this.mPaddingLeft = left;
+            this.mPaddingTop = top;
+            this.mPaddingRight = right;
+            this.mPaddingBottom = bottom;
             return this;
         }
 

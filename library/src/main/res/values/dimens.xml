@@ -1,4 +1,5 @@
 <resources>
     <dimen name="quick_menu_width">270dp</dimen>
     <dimen name="quick_menu_margin">15dp</dimen>
+    <dimen name="quick_menu_padding">10dp</dimen>
 </resources>

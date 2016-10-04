@@ -21,19 +21,9 @@ android {
         }
     }
 
-    sourceSets {
-        main {
-            java.srcDirs = ['src/main/java']
-        }
-        robolectric {
-            java.srcDir file('src/test/java/')
-            resources.srcDir file('src/test/resources')
-        }
-    }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
     compile project(':library')
     // Robolectric
     testCompile 'junit:junit:4.12'
