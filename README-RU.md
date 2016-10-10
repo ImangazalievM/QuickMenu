@@ -13,7 +13,7 @@
 ## Подключение библиотеки
 
 ```gradle
-compile 'com.github.imangazalievm:quickmenu:1.0.0'
+compile 'com.github.imangazalievm:quickmenu:1.1.0'
 ```
 
 ##Показываем меню:
@@ -94,6 +94,7 @@ public class CustomMenuItem implements QuickMenuItem {
 ```java
 QuickMenuProperties properties = new QuickMenuProperties.Builder(this)
         .withWidthInPercentages(menuWidthInPercentages)
+        .withGravity(Gravity.BOTTOM)
         .withBackground(drawable)
         .withMargins(left, top, right, bottom)
         .withLayoutBackground(drawable)
@@ -112,11 +113,30 @@ menu.show();
 
 - **withWidth(int)** - ширина меню в пикселях
 - **withWidthInPercentages()** - ширина меню в процентах
+- **withGravity()** - позиция меню
 - **withMargins(int, int, int, int)** - внешние отступы меню
 - **withPaddings(int, int, int, int)** - внутренние отступы меню
 - **withBackground(Drawable)** - фон меню
 - **withLayoutBackground(Drawable)** - фон области вокруг меню
 - **withCancelOnTouchOutside(boolean)** - закрытие при нажатии на область за границей меню
+
+##Установка слушателей
+
+Также вы можете добавить слушатель показа/скрытия меню:
+
+```java
+menu.setQuickMenuListener(new QuickMenuListener() {
+            @Override
+            public void onMenuShowed() {
+                Toast.makeText(BottomPanelActivity.this, "Menu showed", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onMenuHided() {
+                Toast.makeText(BottomPanelActivity.this, "Menu hided", Toast.LENGTH_SHORT).show();
+            }
+        });
+```
 
 ##Лицензия
 

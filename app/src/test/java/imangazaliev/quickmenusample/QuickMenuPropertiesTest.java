@@ -27,7 +27,7 @@ public class QuickMenuPropertiesTest {
 
     @Before
     public void init() {
-        activity = Robolectric.setupActivity(MainActivity.class);
+        activity = Robolectric.setupActivity(QuickSettingsActivity.class);
     }
 
     @Test

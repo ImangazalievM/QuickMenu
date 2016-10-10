@@ -15,7 +15,7 @@ Small library for creating menus with fast settings
 ## Connecting library to project
 
 ```gradle
-compile 'com.github.imangazalievm:quickmenu:1.0.0'
+compile 'com.github.imangazalievm:quickmenu:1.1.0'
 ```
 
 ## How to show menu:
@@ -96,6 +96,7 @@ Menu's appearance can be changed using QuickMenuProporeties.
 ```java
 QuickMenuProperties properties = new QuickMenuProperties.Builder(this)
         .withWidthInPercentages(menuWidthInPercentages)
+        .withGravity(Gravity.BOTTOM)
         .withBackground(drawable)
         .withMargins(left, top, right, bottom)
         .withLayoutBackground(drawable)
@@ -114,11 +115,30 @@ menu.show();
 
 - **withWidth(int)** - menu width in pixels
 - **withWidthInPercentages()** - menu width in percents
+- **withGravity()** - menu position
 - **withMargins(int, int, int, int)** - outer menu indent
 - **withMargins(int, int, int, int)** - inner menu indent
 - **withBackground(Drawable)** - menu background
 - **withLayoutBackground(Drawable)** - background of area around menu
 - **withCancelOnTouchOutside(boolean)** - close menu when touched outside
+
+##Setup listener
+
+You can also setup show/hide listener:
+
+```java
+menu.setQuickMenuListener(new QuickMenuListener() {
+            @Override
+            public void onMenuShowed() {
+                Toast.makeText(BottomPanelActivity.this, "Menu showed", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onMenuHided() {
+                Toast.makeText(BottomPanelActivity.this, "Menu hided", Toast.LENGTH_SHORT).show();
+            }
+        });
+```
 
 ## License
 

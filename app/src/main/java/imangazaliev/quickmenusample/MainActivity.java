@@ -1,5 +1,6 @@
 package imangazaliev.quickmenusample;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
@@ -14,37 +15,21 @@ import imangazaliev.quickmenu.model.SpinnerMenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
-    QuickMenu menu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String[] spinnerItems = {"Cat", "Dog", "Cow"};
-
-        Drawable menuBackground = getResources().getDrawable(R.drawable.quick_menu_custom_bg);
-        Drawable layoutBackground = new ColorDrawable(Color.parseColor("#80000000"));
-
-        QuickMenuProperties properties = new QuickMenuProperties.Builder(this)
-                .withWidthInPercentages(60)
-                .withBackground(menuBackground)
-                .withMargins(50, 50, 50, 50)
-                .withLayoutBackground(layoutBackground)
-                .withCancelOnTouchOutside(true)
-                .build();
-
-        menu = new QuickMenu.Builder(this)
-                .withItems(new SpinnerMenuItem(spinnerItems),
-                        new DividerMenuItem(this).withColor(Color.parseColor("#EEEEEE")),
-                        new SpinnerMenuItem(spinnerItems))
-                .withProperties(properties)
-                .build();
-
-
     }
 
-    public void showMenu(View view) {
-        menu.show();
+    public void openQuickSettingsActivity(View view) {
+        Intent intent = new Intent(this, QuickSettingsActivity.class);
+        startActivity(intent);
+    }
+
+    public void openBottomPanelActivity(View view) {
+        Intent intent = new Intent(this, BottomPanelActivity.class);
+        startActivity(intent);
     }
 }

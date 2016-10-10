@@ -1,13 +1,17 @@
 package imangazaliev.quickmenu;
 
 import android.app.Activity;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,20 +28,30 @@ public class QuickMenuHelper {
     /* Лейаут, в который будет устанавливаться родительский лейаут меню */
     private FrameLayout mMenuContainerLayout;
     /* Родительский лейаут меню */
-    private RelativeLayout mParentLayout;
+    private LinearLayout mParentLayout;
     /* Лейаут меню */
     private LinearLayout mMenuLayout;
     /* Лейаут пунктов меню */
     private LinearLayout mMenuItemsContainer;
+    private Animation mShowAnimation;
+    private Animation mHideAnimation;
+    private QuickMenuListener mQuickMenuListener;
+    private boolean isAnimationActive;
 
     public QuickMenuHelper(Activity activity, List<QuickMenuItem> items, int layoutId, QuickMenuProperties properties) {
         this.mActivity = activity;
         this.mItems = items;
 
+        this.isAnimationActive = false;
+
         initContainerLayout(layoutId);
         setupMenuLayout(properties);
+        initAnimations(properties);
         addItemsToMenu();
-        hideMenu();
+    }
+
+    public void setQuickMenuListener(QuickMenuListener quickMenuListener) {
+        mQuickMenuListener = quickMenuListener;
     }
 
     /**
@@ -61,12 +75,14 @@ public class QuickMenuHelper {
     private void setupMenuLayout(final QuickMenuProperties properties) {
         LayoutInflater inflater = mActivity.getLayoutInflater();
         inflater.inflate(R.layout.quick_menu_layout, mMenuContainerLayout, true);
-        mParentLayout = (RelativeLayout) mMenuContainerLayout.findViewById(R.id.menuParentLayout);
+        mParentLayout = (LinearLayout) mMenuContainerLayout.findViewById(R.id.menuParentLayout);
         mMenuLayout = (LinearLayout) mParentLayout.findViewById(R.id.menuLayout);
         mMenuItemsContainer = (LinearLayout) mParentLayout.findViewById(R.id.menuItemsContainer);
 
+        mParentLayout.setVisibility(View.GONE);
         mParentLayout.setBackgroundDrawable(properties.getLayoutBackground());
         mMenuLayout.setBackgroundDrawable(properties.getMenuBackground());
+        mParentLayout.setGravity(properties.getGravity());
 
         mParentLayout.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
@@ -80,10 +96,11 @@ public class QuickMenuHelper {
                     menuWidth = (int) (mParentLayout.getWidth() * widthInPercentages);
                 }
 
-                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) mMenuLayout.getLayoutParams();
-                layoutParams.setMargins(properties.getMarginLeft(), properties.getMarginTop(), properties.getMarginRight(), properties.getMarginBottom());
-                layoutParams.width = menuWidth;
-                mMenuLayout.setLayoutParams(layoutParams);
+                LinearLayout.LayoutParams menuLayoutParams = (LinearLayout.LayoutParams) mMenuLayout.getLayoutParams();
+                menuLayoutParams.setMargins(properties.getMarginLeft(), properties.getMarginTop(), properties.getMarginRight(), properties.getMarginBottom());
+                menuLayoutParams.width = menuWidth;
+
+                mMenuLayout.setLayoutParams(menuLayoutParams);
                 mMenuLayout.setPadding(properties.getPaddingLeft(), properties.getPaddingTop(), properties.getPaddingRight(), properties.getPaddingBottom());
 
             }
@@ -113,6 +130,52 @@ public class QuickMenuHelper {
 
     }
 
+    private void initAnimations(QuickMenuProperties properties) {
+        this.mShowAnimation = properties.getOnShowAnimation();
+        this.mHideAnimation = properties.getOnHideAnimation();
+
+        if (mShowAnimation != null) {
+            mShowAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    isAnimationActive = true;
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    isAnimationActive = false;
+                    if (mQuickMenuListener != null) {
+                        mQuickMenuListener.onMenuShowed();
+                    }
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {}
+            });
+        }
+
+        if (mHideAnimation != null) {
+            mHideAnimation.setAnimationListener(new Animation.AnimationListener() {
+                @Override
+                public void onAnimationStart(Animation animation) {
+                    isAnimationActive = true;
+                }
+
+                @Override
+                public void onAnimationEnd(Animation animation) {
+                    isAnimationActive = false;
+                    mParentLayout.setVisibility(View.GONE);
+                    if (mQuickMenuListener != null) {
+                        mQuickMenuListener.onMenuHided();
+                    }
+                }
+
+                @Override
+                public void onAnimationRepeat(Animation animation) {}
+            });
+        }
+    }
+
     /**
      * Добавляем элементы меню в лейаут
      */
@@ -127,11 +190,27 @@ public class QuickMenuHelper {
     }
 
     public void showMenu() {
+        if (isAnimationActive) {
+            return;
+        }
+
         mParentLayout.setVisibility(View.VISIBLE);
+
+        if (mShowAnimation != null) {
+            mMenuLayout.startAnimation(mShowAnimation);
+        }
     }
 
     public void hideMenu() {
-        mParentLayout.setVisibility(View.GONE);
+        if (isAnimationActive) {
+            return;
+        }
+
+        if (mHideAnimation != null) {
+            mMenuLayout.startAnimation(mHideAnimation);
+        } else {
+            mParentLayout.setVisibility(View.GONE);
+        }
     }
 
 

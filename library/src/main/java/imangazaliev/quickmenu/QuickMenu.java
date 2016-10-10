@@ -1,6 +1,7 @@
 package imangazaliev.quickmenu;
 
 import android.app.Activity;
+import android.view.animation.Animation;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,22 +15,20 @@ import imangazaliev.quickmenu.interfaces.QuickMenuItem;
  */
 public class QuickMenu {
 
-    private final Activity mActivity;
     private final List<QuickMenuItem> mItems;
     private final QuickMenuHelper mHelper;
 
     private QuickMenu(Builder builder) {
-        this.mActivity = builder.mActivity;
         this.mItems = builder.mItems;
-        this.mHelper = new QuickMenuHelper(mActivity, mItems, builder.mLayoutId, builder.mMenuProperties);
-    }
-
-    public Activity getActivity() {
-        return mActivity;
+        this.mHelper = new QuickMenuHelper(builder.mActivity, mItems, builder.mLayoutId, builder.mMenuProperties);
     }
 
     public List<QuickMenuItem> getItems() {
         return mItems;
+    }
+
+    public void setQuickMenuListener(QuickMenuListener quickMenuListener) {
+        mHelper.setQuickMenuListener(quickMenuListener);
     }
 
     public boolean isShowing() {
@@ -52,6 +51,7 @@ public class QuickMenu {
         private List<QuickMenuItem> mItems;
         /* Настройки меню */
         private QuickMenuProperties mMenuProperties;
+
 
         public Builder(Activity activity) {
             mActivity = activity;

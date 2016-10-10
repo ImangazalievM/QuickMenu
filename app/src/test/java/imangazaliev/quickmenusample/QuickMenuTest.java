@@ -1,9 +1,6 @@
 package imangazaliev.quickmenusample;
 
 import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -14,7 +11,6 @@ import org.robolectric.RobolectricGradleTestRunner;
 import org.robolectric.annotation.Config;
 
 import imangazaliev.quickmenu.QuickMenu;
-import imangazaliev.quickmenu.QuickMenuProperties;
 import imangazaliev.quickmenu.model.SpinnerMenuItem;
 
 /**
@@ -31,7 +27,7 @@ public class QuickMenuTest {
 
     @Before
     public void init() {
-        activity = Robolectric.setupActivity(MainActivity.class);
+        activity = Robolectric.setupActivity(QuickSettingsActivity.class);
     }
 
     @Test(expected = RuntimeException.class)
